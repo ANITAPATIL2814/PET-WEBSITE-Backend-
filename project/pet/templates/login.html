@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <title>Login</title>
+    <style>
+      h2::first-letter{
+        color: red;
+      }
+    </style>
+</head>
+<body style="background: #1f242d; " >
+<a href="/home" class="text-decoration-none text-light">Home</a>
+<div class="container " >
+    <div class="row" >
+      <div style="box-shadow: 0px 0px 20px 3dvb aqua;" class="col-md-4 mt-5 p-5 mx-auto" style="background-color: white; " style="box-shadow: 0px 0px 20px 3dvb aqua;" > <!--it will divide the screen in 4 cols  and mt-4 is used to give margin spacing and p is used for padding -->
+        <h2  class="mb-4 text-center text-light">....Login....</h2>
+        {% if errormsg %}
+          <div class="alert alert-danger">
+            {{errormsg}}
+          </div>
+        {% endif %}
+        <form method="POST" action="/login/">
+          {% csrf_token %}
+          <div >
+            <label for="input1" class="form-label text-light">Enter Username : </label>
+            <input type="email" class="form-control" id="input1" name="uname" placeholder="Enter username">
+          </div>
+          <br>
+          <div class="mb-3">
+            <label for="input2" class="form-label text-light"> Enter Password : </label>
+            <input type="password" class="form-control" id="input2" name="upass" placeholder="Enter password">
+          </div>                 
+            <input type="submit" class="btn text-bg-info " value="Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not a user?<a href="/register " class="text-light" style="text-decoration: none;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <title>Document</title>
+    <style>
+      h2::first-letter{
+        color: red;
+      }
+    </style>
+</head>
+<a href="/home" class="text-decoration-none text-light">Home</a>
+<body style="background:#1f242d;">
+  <div class="container">
+    <div class="row">
+        <div  style="box-shadow: 0px 0px 20px 3dvb aqua;" class="col-md-4  mt-5 p-5 mx-auto" style="background-color: white;" > <!--it will divide the screen in 4 cols  and mt-4 is used to give margin spacing and p is used for padding -->
+            <h2 style="color: red;" class="mb-4 text-center text-light" >...Registration...</h2>
+        <!--here we are access views.py for showing alert msg on chrome -->
+        {% if errormsg %}
+          <div class="alert alert-danger">
+            {{errormsg}}
+          </div>
+        {% endif %}
+        <form method="POST" action=""> <!--when we enter register it goes to login page-->
+          {% csrf_token %}
+          <div>
+            <label for="input1" class="form-label text-light">Enter Username</label>
+              <input type="email" class="form-control" name="uname" id="input1" placeholder="Enter username" >
+          </div>
+          <br>
+          <div class="mb-3">
+            <label for="input2" class="form-label text-light">Enter Password</label>
+            <input type="password" class="form-control" id="input2" name="upass" placeholder="Enter password">
+          </div>
+          <div class="mb-3">
+            <label for="input2" class="form-label text-light">Enter Repassword</label>
+            <input type="password" class="form-control" id="input2" name="ucpass" placeholder="Re Enter password">
+          </div>
+          <input type="submit" class="btn  text-bg-info" value="Register">&nbsp;&nbsp;&nbsp;&nbsp;Already user?&nbsp;&nbsp;&nbsp;&nbsp;<a class="text-light" href="/login" style="text-decoration: none;">Login</a>
+          <!--for success message after entering details-->
+          {% if success %}
+            <div class="alert alert-danger m-2">
+              {{success}}
+            </div>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

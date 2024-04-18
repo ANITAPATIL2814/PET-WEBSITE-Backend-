@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'main' %}
+<div class="col-md-12 mt-2 " >
+    <div class="row  ">
+        <div class="card text-center col-md-6 bg-success-subtle border-danger">
+            <div class="card-body ">
+              <h5 class="card-title">Dogs are the most popular pet on the planet!</h5>
+              <img src="{% static 'assets/images/dog2.jpg' %}" class="card-img-top" alt="...">
+              <p class="card-text">A third of ALL households around the world have a dog. These playful, friendly, loyal animals make great companions, but they can also be fierce and tough protectors, or intelligent helpers.</p>
+            </div> 
+        </div>
+        <div class="card text-center col-md-6 bg-success-subtle border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Birds are the only animals with feathers !</h5>
+              <img src="{% static 'assets/images/birdlogo.jpg' %}" class="card-img-top" alt="...">
+              <p class="card-text">Birds are warm-blooded vertebrate animals that lay eggs. One feature that distinguishes birds from other animals is their feathers. While most birds fly, others, like penguins and ostriches, are flightless birds.</p>
+            </div> 
+        </div>
+        <div class="card text-center col-md-6 bg-success-subtle border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Cats are one of, if not the most, popular pet in the world!    </h5>
+              <img src="{% static 'assets/images/cat1.jpg' %}" class="card-img-top" alt="...">
+              <p class="card-text">Keep a pretty kitty with regular grooming. Fifteen minutes once or twice a week can prevent matting, reduce hairballs and give you a chance to check on overall health. It provides bonding time too!</p>
+            </div> 
+        </div>
+        <div class="card text-center col-md-6  bg-success-subtle border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Birds are the only animals with feathers !</h5>
+              <img src="{% static 'assets/images/birdlogo2.jpg' %}" class="card-img-top" alt="...">
+              <p class="card-text">Birds are some of the most captivating creatures in the world. They are covered in feathers and come in remarkable colors. From the hummingbird to the perching birds, we have over 18,000 species of birds all over the planet. Many birds fly, while some can jump, run, and swim. Some of them are also quite bizarre.</p>
+            </div> 
+        </div>
+    </div> 
+</div>
+{% endblock 'main'%}

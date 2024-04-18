@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">    
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"> 
+</head>
+<body>
+    <!--footer start-->
+    <div class="row  m-2 bg-success-subtle "> <!--ms: left me:right mt: margin top pt:padding top value we be only 1 to 5-->
+        <div class="col-md-3">
+            <h3 class="text-danger">Shop now</h3>
+            <hr class="text-black">
+            <p><a href="/catfilter/1" class="text-decoration-none text-black" >Dog</a></p>
+            <p><a href="/catfilter/2" class="text-decoration-none text-black" >Cat</a></p>
+            <p><a href="/catfilter/3" class="text-decoration-none  text-black" >Birds</a></p>
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-danger">Quick Links</h3>
+            <hr class="text-black">
+            <p><a href="/home" class="text-decoration-none text-black" >Home</a></p>
+            <p><a href="/about" class="text-decoration-none  text-black ">About</a></p>
+            <p><a href="/contact" class="text-decoration-none text-black">Contact</a></p>      
+        </div>
+        <div class="col-md-3 ">
+            <h3 class="text-danger">Follow us</h3>
+            <hr class="text-black">
+            <div class="box1">
+                <a href="https://www.facebook.com/"><i class="bi bi-facebook text-black "></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.instagram.com/"><i class="bi bi-instagram text-black "></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.linkedin.com/"><i class="bi bi-linkedin text-black"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.twitter.com/"><i class="bi bi-twitter text-black"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.twitter.com/"><i class="bi bi-github text-black"></i></a>&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-danger">Sign Up</h3>
+            <hr class="text-black">
+            <p><h5 class="text-black">For us it's all about the love for Pets!</h5></p>
+            {% if user.is_authenticated %}
+            <a href="/logout"><button class="btn btn-outline-danger">Logout</button></a>    
+            {% else %}
+            <a href="/login"><button class="btn btn-outline-danger">Login</button></a>     
+            {% endif %} 
+        </div>
+    </div>
+    <!--footer end-->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+</body>
+</html>

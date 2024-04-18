@@ -1,0 +1,84 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3  " >
+        <div class="col-lg-8 border-danger p-3 main-section bg-success-subtle position-absolute top-50 start-50 translate-middle" style="box-shadow: 0px 0px 20px 3dvb aqua;">
+            <div class="row hedding m-0 pl-3 pt-0 pb-3">
+                <h2 class="text-danger text-center">Product Detail </h2>
+            </div>
+
+            <div class="row m-0 border-black" >
+                {% for x in products %}
+                <div class="col-lg-4 left-side-product-box pb-3">
+                    <img src="{{ x.image.url }}" height="70%" width="100%">
+                </div>
+                <div class="col-lg-8">
+                    <div class="right-side-pro-detail border-danger p-3 m-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span><strong>PET</strong></span>
+                                <p class="m-0 p-0">Name :  &nbsp;{{x.name}}</p>
+                            </div>
+                            <div class="col-lg-12">
+                                <p class="m-0 p-0 price-pro">Rs : &nbsp;{{ x.price}}</p>
+                                <hr class="p-0 m-0 border-danger">
+                            </div>
+                            <!--to print category-->
+                            {% if x.cat == 1 %}
+                                <p><strong>Category: </strong>&nbsp;&nbsp;Dog</p>
+                            {% elif x.cat == 2 %}
+                                <p><strong>Category: </strong>&nbsp;&nbsp;Pet</p>
+                            {% else %}
+                                <p><strong>Category: </strong>&nbsp;&nbsp;Bird</p>
+                            {% endif %}
+                            <div class="col-lg-12 pt-2">
+                                <h5>Pet Detail</h5>
+                                <span>{{ x.description }}</span>
+                                <hr class="m-0 pt-2 mt-2 border-danger">
+                            </div>
+                            <div class="col-lg-12">
+                                <p class="tag-section"><strong>Life-span : &nbsp;</strong>{{x.life}}<br>
+                                    <strong>Color:</strong>  &nbsp;{{ x.color}}
+                                </p>
+                            </div>
+                            <div class="col-lg-12 mt-3">
+                                <div class="row">
+                                    <div class="col-lg-4 pb-2">
+                                        <a href="/addtocart/{{x.id}}" class="btn btn-outline-success w-100">Add To Cart</a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/index" class="btn btn-outline-danger w-100">Shop More</a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a href="/viewcart" class="btn btn-outline-success w-100">View Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--for printing success on product_details.html-->
+                    {% if success %}
+                        <div class="alert alert-success mt-4">
+                            {{success}}
+                        </div>
+                    {% endif %}
+                    <!--to print msg-->
+                    {% if msg %}
+                        <div class="alert alert-danger">
+                            {{msg}}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
